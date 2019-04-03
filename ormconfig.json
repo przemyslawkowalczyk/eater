@@ -1,0 +1,10 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": "1m2b4kFS",
+  "database": "eater",
+  "entities": ["src/**/*.entity{.ts,.js}"],
+  "synchronize": true
+}
