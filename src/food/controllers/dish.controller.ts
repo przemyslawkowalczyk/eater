@@ -1,24 +1,24 @@
-import { Controller, Get, Post, Param, Body, Res, HttpStatus } from '@nestjs/common';
-import { Response } from 'express';
-import { DishService } from '../services/dish.service';
+import { Controller, Get, Post, Param, Body } from '@nestjs/common';
+import DishService from '../services/dish.service';
+import Dish from '../models/dish.entity';
+import CreateDish from '../validators/CreateDish';
 
 @Controller('dish')
 export class DishController {
   constructor(private readonly dishService: DishService) {}
 
   @Get('/all')
-  async getDetails(@Param('id') id): Promise<object> {
-    return await this.dishService.getAll();
+  async getDetails(@Param('id') id): Promise<Dish[]> {
+    return this.dishService.getAll();
   }
 
   @Get(':id')
-  getAll(@Param('id') id: string): Promise<object> {
+  getAll(@Param('id') id: string): Promise<Dish> {
     return this.dishService.get({ id });
   }
 
   @Post()
-  async create(@Res() res: Response, @Body() dish: { name: string, price: number }): Promise<void> {
-    await this.dishService.create(dish);
-    res.status(HttpStatus.OK).send();
+  async create(@Body() dish: CreateDish) {
+    return this.dishService.create(dish);
   }
 }

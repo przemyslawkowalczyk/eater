@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { DishController } from './controllers/dish.controller';
-import { DishService } from './services/dish.service';
+import DishService from './services/dish.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Dish } from './models/dish.entity';
+import Dish from './models/dish.entity';
 
 @Module({
   imports: [
