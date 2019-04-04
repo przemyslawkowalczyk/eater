@@ -17,7 +17,7 @@ export default class DishService {
   }
 
   async getAll(): Promise<Dish[]> {
-    return this.dishRepository.find();
+    return this.dishRepository.find({ relations: ['menu', 'menu.restaurant']});
   }
 
   async create(data): Promise<Dish> {
