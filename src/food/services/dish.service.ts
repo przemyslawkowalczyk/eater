@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import Dish from '../models/dish.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DeleteResult } from 'typeorm';
+import * as _ from 'lodash';
+import { log } from 'util';
 
 @Injectable()
 export default class DishService {
@@ -11,7 +13,7 @@ export default class DishService {
   ) {}
 
   async get(criteria: object): Promise<Dish> {
-    return this.dishRepository.findOne(criteria);
+      return this.dishRepository.findOne({ where: { ...criteria } });
   }
 
   async getAll(): Promise<Dish[]> {
@@ -19,11 +21,16 @@ export default class DishService {
   }
 
   async create(data): Promise<Dish> {
-    return this.dishRepository.save(data);
+    const dish = new Dish();
+    dish.name = data.name;
+    dish.price = data.price;
+    dish.picture = data.picture;
+    return this.dishRepository.save(dish);
   }
 
   async update(dish): Promise<Dish> {
-    return this.dishRepository.save(dish);
+      const oldDish = await this.dishRepository.findOne(dish.id);
+      return this.dishRepository.save(_.omit(_.merge(oldDish, dish), 'id'));
   }
 
   async delete(id): Promise<DeleteResult> {

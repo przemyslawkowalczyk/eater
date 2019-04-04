@@ -7,7 +7,10 @@ export default class Menu {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 255})
+  @Column({
+      length: 255,
+      nullable: true,
+  })
   name: string;
 
   @OneToMany(type => Dish, dish => dish.menu)

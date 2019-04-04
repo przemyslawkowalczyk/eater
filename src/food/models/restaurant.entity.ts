@@ -6,16 +6,26 @@ export default class Restaurant {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 255})
+  @Column({
+      length: 255,
+      nullable: true,
+  })
   name: string;
 
-  @Column({ length: 255 })
+  @Column({
+      length: 255,
+      nullable: true,
+  })
   logo: string;
 
-  @Column()
+  @Column({
+      nullable: true,
+  })
   latitude: string;
 
-  @Column()
+  @Column({
+      nullable: true,
+  })
   longitude: string;
 
   @OneToMany(type => Menu, menu => menu.restaurant)

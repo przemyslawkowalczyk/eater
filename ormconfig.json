@@ -12,6 +12,6 @@
   "cli": {
     "migrationsDir": "migrations"
   },
-  "autoSchemaSync": false,
+  "autoSchemaSync": true,
   "autoMigrationsRun": true
 }
