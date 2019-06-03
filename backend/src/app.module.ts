@@ -6,9 +6,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     FoodModule,
-      UserModule,
+    UserModule,
     TypeOrmModule.forRoot(),
-
   ],
 })
+
 export class AppModule {}
