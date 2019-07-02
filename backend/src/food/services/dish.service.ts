@@ -25,6 +25,7 @@ export default class DishService {
     dish.name = data.name;
     dish.price = data.price;
     dish.picture = data.picture;
+    dish.menu = data.menu;
     return this.dishRepository.save(dish);
   }
 

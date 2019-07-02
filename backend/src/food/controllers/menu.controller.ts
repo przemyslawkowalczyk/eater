@@ -26,8 +26,8 @@ export class MenuController {
     }
 
     @Post()
-    async create(@Body() dish) {
-        return this.menuService.create(dish);
+    async create(@Body() menu) {
+        return this.menuService.create(menu);
     }
 
     @Put()

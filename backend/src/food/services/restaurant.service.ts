@@ -11,7 +11,7 @@ export default class RestaurantService {
     ) {}
 
     async get(criteria: object): Promise<Restaurant> {
-        return this.restaurantRepository.findOne(criteria);
+        return this.restaurantRepository.findOne(criteria, { relations: ['menus', 'menus.dishes'] });
     }
 
     async getAll(): Promise<Restaurant[]> {

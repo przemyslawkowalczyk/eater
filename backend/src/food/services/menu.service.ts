@@ -19,6 +19,7 @@ export default class MenuService {
     }
 
     async create(data): Promise<Menu> {
+        data.restaurant = +data.restaurantId;
         return this.menuRepository.save(data);
     }
 

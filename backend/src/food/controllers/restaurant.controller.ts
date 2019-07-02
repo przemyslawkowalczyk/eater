@@ -18,13 +18,13 @@ export class RestaurantController {
     }
 
     @Post()
-    async create(@Body() dish: CreateDish) {
-        return this.restaurantService.create(dish);
+    async create(@Body() restaurant: object) {
+        return this.restaurantService.create(restaurant);
     }
 
     @Put()
-    async update(@Body() dish: CreateDish) {
-        return this.restaurantService.update(dish);
+    async update(@Body() restaurant: object) {
+        return this.restaurantService.update(restaurant);
     }
 
     @Delete('/:id')
