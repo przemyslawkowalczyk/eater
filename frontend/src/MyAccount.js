@@ -49,13 +49,13 @@ export default class MyAccount extends Component {
               </Form.Text>
             </Form.Group>
             <Form.Group controlId="latitude">
-              <Form.Label>szerokość</Form.Label>
+              <Form.Label>latitude</Form.Label>
               <Form.Control value={this.state.latitude} type="number" placeholder="Enter szerokość" onChange={this.onChange.bind(this)}/>
               <Form.Text className="text-muted">
               </Form.Text>
             </Form.Group>
             <Form.Group controlId="longitude">
-              <Form.Label>dlugosc</Form.Label>
+              <Form.Label>longitude</Form.Label>
               <Form.Control value={this.state.longitude} type="number" placeholder="Enter dlugosc" onChange={this.onChange.bind(this)}/>
               <Form.Text className="text-muted">
               </Form.Text>
